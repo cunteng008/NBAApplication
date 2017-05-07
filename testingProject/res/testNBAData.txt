@@ -1,0 +1,13 @@
+19197
+Rk,Player,Season,Age,TeamAbbr,Lg,G,PTS,TeamSeason,TeamLg,TeamName,TeamCoaches,TeamFrom,TeamTo,TeamYrs,TeamG,TeamW,TeamL,TeamChamp,ArenaTeam,ArenaStart-End,Arena,ArenaLocation,ArenaCapacity
+1,Alan Anderson,2013-2014,31,BRK,NBA,6,36,2013-2014,NBA,Brooklyn Nets,J. Kidd ,2013,2014,2,88,51,37,,Brooklyn Nets,2012-2014,,,
+2,Steven Adams,2013-2014,,OKC,NBA,6,36,2013-2014,NBA,Oklahoma City Thunder,S. Brooks ,2009,2014,6,400,240,160,0,Oklahoma City Thunder,2007-2014,ChesapeakeEnergyArena,OklahomaCityOK,18203
+3,Jeff Adrien,2013-2014,27,CHA,NBA,6,17,2013-2014,NBA,Charlotte Bobcats,S. Clifford ,2005,2014,10,728,253,475,0,Charlotte Bobcats,2005-2014,TimeWarnerCableArena,CharlotteNC,19077
+4,Arron Afflalo,2013-2014,28,ORL,NBA,7,138,2013-2014,NBA,,J. Vaughn ,1990,2014,25,1927,982,,,,,,,
+5,Boris Diaw,2008-2009,26,TOT,NBA,81,1072,,,,,,,,,,,,,,,,
+6,Yakhouba Diawara,2008-2009,26,MIA,NBA,63,213,2008-2009,NBA,Miami Heat,E. Spoelstra ,1989,2014,26,2009,1035,974,3,Miami Heat,1999-2014,AmericanAirlinesArena,MiamiFL,19600
+7,Travis Diener,2008-2009,26,IND,NBA,55,206,2008-2009,NBA,Indiana Pacers,J. O'Brien ,1977,2014,38,2992,1474,1518,0,Indiana Pacers,1999-2014,BankersLifeFieldhouse,IndianapolisIN,19200
+8,Ike Diogu,2008-2009,25,TOT,NBA,29,119,,,,,,,,,,,,,,,,
+9,DeSagana Diop,2008-2009,27,TOT,NBA,75,170,,,,,,,,,,,,,,,,
+10,Alan Anderson,2012-2013,30,TOR,NBA,65,693,2012-2013,NBA,Toronto Raptors,D. Casey ,1996,2014,19,1435,584,851,0,Toronto Raptors,1999-2014,AirCanadaCentre,TorontoON,19500
+11,DeSagana Diop,2012-2013,31,CHA,NBA,22,16,2012-2013,NBA,Charlotte Bobcats,M. Dunlap ,2005,2014,10,728,253,475,0,Charlotte Bobcats,2005-2014,TimeWarnerCableArena,CharlotteNC,19077
