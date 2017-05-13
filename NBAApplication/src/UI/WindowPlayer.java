@@ -72,7 +72,7 @@ public class WindowPlayer extends WindowRoot {
 		lblage.setBounds(10, 159, 165, 30);
 		getContentPane().add(lblage);
 		
-		String[] columnName = {"赛季","效力于","出场数","得分","教练"};
+		String[] columnName = {"赛季","效力于","出场数","得分","年龄"};
 		
 		Object[][] data = new Object[player.getSeasons().size()][5];
 		for(int i=0;i<player.getSeasons().size();i++){
@@ -80,7 +80,7 @@ public class WindowPlayer extends WindowRoot {
 			data[i][1] = player.getSeasons().get(i).getTeamAbbr();
 			data[i][2] = player.getSeasons().get(i).getGames();
 			data[i][3] = player.getSeasons().get(i).getPoints();
-			data[i][4] = "无";
+			data[i][4] = player.getSeasons().get(i).getAge();
 		}
 		
 		JScrollPane scrollPane = new JScrollPane(table);
@@ -128,40 +128,6 @@ public class WindowPlayer extends WindowRoot {
 
 	private void setContent(){
 		lblName.setText("名字: "+player.getName());
-	}
-	
-	
-	private class TableMouseListener implements MouseListener{
-		@Override
-		public void mouseClicked(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mouseEntered(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mouseExited(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mousePressed(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mouseReleased(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-		
 	}
 	
 }
