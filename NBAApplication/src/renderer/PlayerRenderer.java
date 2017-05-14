@@ -1,4 +1,4 @@
-package model;
+package renderer;
 
 import java.awt.Component;
 import java.awt.FlowLayout;
@@ -8,6 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
+
+import model.Player;
 
 public class PlayerRenderer extends JPanel implements ListCellRenderer<Player> {
 	

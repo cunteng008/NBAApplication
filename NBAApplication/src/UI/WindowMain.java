@@ -28,8 +28,10 @@ import javax.swing.event.ListSelectionListener;
 
 import listener.OpenFileListener;
 import model.Player;
-import model.PlayerRenderer;
 import model.SingleDBton;
+import model.Team;
+import renderer.PlayerRenderer;
+import renderer.TeamRenderer;
 import util.MyParser;
 import util.SearchUtil;
 
@@ -47,6 +49,9 @@ public class WindowMain extends WindowRoot{
 	private JTextField textField;
 	JList list;
 	List<Player> playerList;
+	
+	JList jListTeam ;
+	List<Team> teamList;
 
 	public WindowMain() {
 		super();	    
@@ -81,6 +86,16 @@ public class WindowMain extends WindowRoot{
 		btnOpenData.addActionListener(new  OpenFileListener(this));
 		btnOpenData.setBounds(0, 0, 79, 20);
 		panel.add(btnOpenData);
+		
+		
+		DefaultListModel<Team> teamModel = new DefaultListModel<>();
+		jListTeam = new JList(teamModel);
+		jListTeam.setBounds(0, 0, 1, 1);
+		jListTeam.setCellRenderer(new TeamRenderer());
+		jListTeam.addMouseListener(new TeamListListener());
+		JScrollPane scrollPaneTeam = new JScrollPane(jListTeam);
+		scrollPaneTeam.setBounds(32, 114, 220, 547);
+		getContentPane().add(scrollPaneTeam);
 	}	
 	
 	private class PlayerListListener implements MouseListener {
@@ -91,8 +106,7 @@ public class WindowMain extends WindowRoot{
 			int index = list.getSelectedIndex();
 			if(index!=-1){
 				if(e.getClickCount()==2){
-					WindowRoot windowsMain = new WindowPlayer(SingleDBton.instance().
-							getPlayers().get(index));					
+					WindowRoot windowsMain = new WindowPlayer(playerList.get(index));					
 				}
 			}
 		}
@@ -102,11 +116,38 @@ public class WindowMain extends WindowRoot{
 		public void mousePressed(MouseEvent arg0) {}
 		public void mouseReleased(MouseEvent arg0) {}		
 	}
+	
+	private class TeamListListener implements MouseListener {
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			int index = jListTeam.getSelectedIndex();
+	//为什么team传过来的值为null,是因为静态变量的引用没了吗
+			if(index<0){
+				return;
+			}
+			if(e.getClickCount()==2){
+				Team team= new Team("","");
+				team =(Team) jListTeam.getSelectedValue();
+					if(team!=null){
+						WindowRoot window = new WindowTeam(index);		
+					}
+					
+									
+			}
+		
+		}
+		public void mouseEntered(MouseEvent arg0) {}
+		public void mouseExited(MouseEvent arg0) {}
+		public void mousePressed(MouseEvent arg0) {}
+		public void mouseReleased(MouseEvent arg0) {}		
+	}
 	private class SearchListener implements ActionListener{
 
 		public void actionPerformed(ActionEvent arg0) {
 			String searchKey = textField.getText().toString();
-			playerList = SearchUtil.SearchPlayerRes(searchKey,playerList);
+			playerList = SearchUtil.SearchPlayerRes(searchKey,SingleDBton.instance().getPlayers());
 			updateJList();
 		}
 		
@@ -126,7 +167,9 @@ public class WindowMain extends WindowRoot{
 		      MyParser myParser = new MyParser();
 		      myParser.parse(fileName, 2);
 		      playerList = SingleDBton.instance().getPlayers();
+		      teamList = SingleDBton.instance().getTeams();
 		      updateJList();
+		      updateJListTeam();
 		    }
 		}	
 	}
@@ -134,6 +177,11 @@ public class WindowMain extends WindowRoot{
 	private void updateJList(){
 		if(playerList!=null){
 			list.setListData(playerList.toArray());
+		}		
+	}
+	private void updateJListTeam(){
+		if(teamList!=null){
+			jListTeam.setListData(teamList.toArray());
 		}		
 	}
 	
