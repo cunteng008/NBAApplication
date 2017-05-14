@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Player {
 	String name;
+	
 	ArrayList<PlayerSeason> seasons = null;
 	
 	public Player(String name){
