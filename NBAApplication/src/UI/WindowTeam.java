@@ -23,9 +23,9 @@ import javax.swing.SwingConstants;
 
 public class WindowTeam extends WindowRoot {
 	Team team;
-	public WindowTeam(int index) {
+	public WindowTeam(Team team) {
 		super();
-		this.team = SingleDBton.instance().getTeams().get(index);
+		this.team = team;
 		init();
 	}
 	@Override

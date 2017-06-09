@@ -34,8 +34,7 @@ public class MyParserTest {
 
 	@Test
 	public void testParse() {
-		
-		
+				
 		myParser.parse(fileName,2);		
 		
 		// 测试解析的运动员数据

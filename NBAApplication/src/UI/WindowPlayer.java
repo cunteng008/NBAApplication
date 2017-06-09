@@ -109,7 +109,7 @@ public class WindowPlayer extends WindowRoot {
 			chartData.put(playerSeason.getSeason(), playerSeason.getGames());
 		}
 		JPanel playerGamesBarChart = new JPanel();
-		playerGamesBarChart.setBounds(10, 451, 537, 200);
+		playerGamesBarChart.setBounds(10, 451, 537, 240);
 		getContentPane().add(playerGamesBarChart);		
 		playerGamesBarChart.add( new BarChart(xLabel,yLabel,chartData).getChartPanel());
 		playerGamesBarChart.setLayout(new CardLayout(0, 0));
@@ -120,7 +120,7 @@ public class WindowPlayer extends WindowRoot {
 			chartData.put(playerSeason.getSeason(), playerSeason.getPoints());
 		}
 		JPanel playerPointsBarChart = new JPanel();
-		playerPointsBarChart.setBounds(547, 451, 437, 200);
+		playerPointsBarChart.setBounds(547, 451, 437, 240);
 		playerPointsBarChart.add(new BarChart(xLabel,yLabel,chartData).getChartPanel());
 		getContentPane().add(playerPointsBarChart);
 		playerPointsBarChart.setLayout(new CardLayout(0, 0));

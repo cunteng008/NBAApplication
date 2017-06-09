@@ -131,7 +131,7 @@ public class WindowMain extends WindowRoot{
 				Team team= new Team("","");
 				team =(Team) jListTeam.getSelectedValue();
 					if(team!=null){
-						WindowRoot window = new WindowTeam(index);		
+						WindowRoot window = new WindowTeam(team);		
 					}
 					
 									

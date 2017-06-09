@@ -12,7 +12,7 @@ import javax.swing.border.EmptyBorder;
 
 public abstract class WindowRoot extends JFrame{
 	protected int width = 1000;
-	protected int height = 700;
+	protected int height = 730;
 	
 	public WindowRoot(){
 		this.getContentPane().setLayout(null);  // 设置默认布局为空
