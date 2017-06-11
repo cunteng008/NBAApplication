@@ -23,6 +23,7 @@ import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -30,6 +31,7 @@ import listener.OpenFileListener;
 import model.Player;
 import model.SingleDBton;
 import model.Team;
+import model.TeamSeason;
 import renderer.PlayerRenderer;
 import renderer.TeamRenderer;
 import util.MyParser;
@@ -52,9 +54,12 @@ public class WindowMain extends WindowRoot{
 	
 	JList jListTeam ;
 	List<Team> teamList;
+	
+	MyParser myParser;
 
 	public WindowMain() {
-		super();	    
+		super();	
+		myParser = new MyParser();
 	    init();		
 	}
 	
@@ -134,7 +139,9 @@ public class WindowMain extends WindowRoot{
 						WindowRoot window = new WindowTeam(team);		
 					}
 					
-									
+					for(TeamSeason season:team.getTeamSeasons()){
+						System.out.println(season.getArenaName()+season.getSeason());
+					}				
 			}
 		
 		}
@@ -146,7 +153,7 @@ public class WindowMain extends WindowRoot{
 	private class SearchListener implements ActionListener{
 
 		public void actionPerformed(ActionEvent arg0) {
-			String searchKey = textField.getText().toString();
+			String searchKey = textField.getText().toString().trim();
 			playerList = SearchUtil.SearchPlayerRes(searchKey,SingleDBton.instance().getPlayers());
 			updateJList();
 		}
@@ -164,10 +171,13 @@ public class WindowMain extends WindowRoot{
 		public void actionPerformed(ActionEvent arg0) {		
 		    if(fileChooser.showOpenDialog(frame)==JFileChooser.APPROVE_OPTION ){
 		      String fileName = fileChooser.getSelectedFile().getAbsolutePath();
-		      MyParser myParser = new MyParser();
+		     
 		      myParser.parse(fileName, 2);
+		      myParser.excuteParsing();
+		      
 		      playerList = SingleDBton.instance().getPlayers();
 		      teamList = SingleDBton.instance().getTeams();
+		     
 		      updateJList();
 		      updateJListTeam();
 		    }

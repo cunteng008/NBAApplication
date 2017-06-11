@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import model.Arena;
 import model.Player;
 import model.SingleDBton;
 
@@ -23,6 +24,8 @@ public class SearchUtil {
 		}
 		return res;
 	}
+	
+	
 	
 	public static String RegularExpressionRule(String searchKey){
 		String rule = ".*(?i)";  

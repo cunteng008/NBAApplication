@@ -10,7 +10,7 @@ public class SingleDBton {
 	private ArrayList<Team> teams ;
 	private ArrayList<Arena> arenas;
 	
-	public SingleDBton(){
+	private SingleDBton(){
 		players = new ArrayList<Player>();
 		teams = new ArrayList<Team>();
 		arenas = new ArrayList<Arena>();

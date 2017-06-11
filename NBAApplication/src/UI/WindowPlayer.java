@@ -6,14 +6,19 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
+
 import java.awt.BorderLayout;
 
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
 import chart.BarChart;
 import model.Player;
 import model.PlayerSeason;
+import model.SingleDBton;
+import model.Team;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -24,6 +29,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.awt.CardLayout;
 
@@ -90,7 +97,21 @@ public class WindowPlayer extends WindowRoot {
 		getContentPane().add(scrollPane_1);
 		
 		table = new JTable(data,columnName);
-		//table.addMouseListener(new TableMouseListener());
+		table.addMouseListener(new MouseAdapter(){
+		public void mouseClicked(MouseEvent e){
+			if(e.getClickCount()==2){
+				
+				int row = table.getSelectedRow();
+				int col = table.getSelectedColumn();
+				String value = (String)table.getValueAt(row, col);
+				for(Team team:SingleDBton.instance().getTeams()){
+					if(team.getAbbr().equals(value)){
+						WindowRoot window = new WindowTeam(team);
+					}
+				}
+			}
+		}
+	});
 		table.setRowSelectionAllowed(false);
 		table.setFont(new Font("宋体", Font.PLAIN, 15));
 		TableColumn column = null;

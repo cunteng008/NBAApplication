@@ -1,5 +1,7 @@
 package util;
 
+import javax.swing.SwingUtilities;
+
 import model.Arena;
 import model.Player;
 import model.PlayerSeason;
@@ -17,25 +19,32 @@ public class MyParser {
 	
 	MyFileReader myFileReader;
 	int ignoreLines = 0;  // 忽略的行数
-	
+	public  int progress = 0;
+	public  int finish = 0;
 				
 	public void parse(String fileName,int ignoreLines){
 		myFileReader = new MyFileReader(fileName);
 		this.ignoreLines = ignoreLines;
-		excuteParsing();
-	}
-	
-	void excuteParsing(){
-		if(ignoreLines>0){
+		
+		if(ignoreLines>0){			
 			while(ignoreLines>0){
-				if(myFileReader.hasNext()){
-					myFileReader.getALineData();
+				progress++;
+				if(myFileReader.hasNext()){					
+					if(progress==1){
+						finish = myStrToInt( myFileReader.getALineData());	
+					}
 				}
 				ignoreLines--;
 			}
 		}
-		while(myFileReader.hasNext()){
-			
+	
+		
+	}
+	
+	public void excuteParsing(){
+		
+		while(myFileReader.hasNext()){			
+			progress++;
 			String aLineData = myFileReader.getALineData();
 			String[] words = Split.splitByComma(aLineData, 24);
 				
